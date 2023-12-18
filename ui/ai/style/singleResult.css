@@ -1,0 +1,49 @@
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  color: #0b650f;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.resultImg {
+  width: 200px;
+  height: 200px;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.textResult {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 100px;
+  margin-top: 25px;
+}
+
+.tomatoResult {
+  flex: 1;
+  margin: 20px;
+}
+
+.leaveResult {
+  flex: 1;
+  margin: 20px;
+}
+
+#leaveList {
+  color: #131c13;
+  font-size: 32px;
+
+}
+

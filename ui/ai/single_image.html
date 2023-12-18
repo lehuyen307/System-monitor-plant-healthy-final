@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>System tree monitor</title>
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+        <!-- font-awesome -->
+        <script src="https://kit.fontawesome.com/3115b3f4f1.js"></script>
+        <!-- favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/favicon/manifest.json" />
+
+
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- style -->
+        <link rel="stylesheet" href="../assets/css/main.css" />
+
+        <link rel="stylesheet" href="./style/single.css" />
+
+        <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+        
+
+                
+
+
+        <!-- link tái sử dụng header footer-->
+        <script src="../assets/js/scripts.js"></script>
+
+        <script src="./scripts/services.js"></script>
+
+        <script src="./scripts/utils.js"></script>
+
+
+        <!-- style slick slider -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+        <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    </head>
+    <body>
+        <header id="header" class="header"></header>
+        <script>
+            load("header", "../template/header.html");
+        </script>
+
+        <main class="main">
+            <section class="uploader">
+                <div class="upload-container">
+                    <input type="file" name="image" id="image">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="67" viewBox="0 0 60 67" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.22759 39.1481C9.57314 39.1481 10.6639 40.3751 10.6639 41.8888V52.8518C10.6639 53.5787 10.9206 54.2758 11.3775 54.7898C11.8344 55.3038 12.4541 55.5925 13.1002 55.5925H47.2089C47.855 55.5925 48.4747 55.3038 48.9316 54.7898C49.3885 54.2758 49.6452 53.5787 49.6452 52.8518V41.8888C49.6452 40.3751 50.736 39.1481 52.0815 39.1481C53.4271 39.1481 54.5178 40.3751 54.5178 41.8888V52.8518C54.5178 55.0324 53.7478 57.1238 52.3771 58.6658C51.0064 60.2077 49.1473 61.074 47.2089 61.074H13.1002C11.1618 61.074 9.30271 60.2077 7.93201 58.6658C6.56131 57.1238 5.79126 55.0324 5.79126 52.8518V41.8888C5.79126 40.3751 6.88204 39.1481 8.22759 39.1481Z" fill="#3C50E0"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M28.4319 7.0619C29.3833 5.99157 30.9259 5.99157 31.8773 7.0619L44.059 20.7656C45.0104 21.8359 45.0104 23.5713 44.059 24.6416C43.1075 25.7119 41.5649 25.7119 40.6135 24.6416L30.1546 12.8759L19.6957 24.6416C18.7443 25.7119 17.2017 25.7119 16.2502 24.6416C15.2988 23.5713 15.2988 21.8359 16.2502 20.7656L28.4319 7.0619Z" fill="#3C50E0"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M30.1546 6.25916C31.5001 6.25916 32.5909 7.48623 32.5909 8.9999V41.8888C32.5909 43.4025 31.5001 44.6295 30.1546 44.6295C28.809 44.6295 27.7183 43.4025 27.7183 41.8888V8.9999C27.7183 7.48623 28.809 6.25916 30.1546 6.25916Z" fill="#3C50E0"/>
+                        </svg>
+
+                        
+                    <label for="file">Upload file</label>
+                    <p>Click to upload or drag and drop</p>
+                    <p>SVG, PNG, JPG or GIF
+                        (max, 800 X 800px)</p>
+
+                </div> -->
+            </section>
+
+        </main>
+        <footer id="footer" class="footer"></footer>
+        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+        <script>
+            // Register the plugin
+            FilePond.registerPlugin(FilePondPluginFileEncode);
+        
+            // ... FilePond initialisation code here
+        </script>
+
+        <script>
+            // Get a reference to the file input element
+            const inputElement = document.querySelector('input[type="file"]');
+            // Create a FilePond instance
+            const pond = FilePond.create(inputElement, {
+                labelIdle: `<svg xmlns="http://www.w3.org/2000/svg" width="60" height="67" viewBox="0 0 60 67" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.22759 39.1481C9.57314 39.1481 10.6639 40.3751 10.6639 41.8888V52.8518C10.6639 53.5787 10.9206 54.2758 11.3775 54.7898C11.8344 55.3038 12.4541 55.5925 13.1002 55.5925H47.2089C47.855 55.5925 48.4747 55.3038 48.9316 54.7898C49.3885 54.2758 49.6452 53.5787 49.6452 52.8518V41.8888C49.6452 40.3751 50.736 39.1481 52.0815 39.1481C53.4271 39.1481 54.5178 40.3751 54.5178 41.8888V52.8518C54.5178 55.0324 53.7478 57.1238 52.3771 58.6658C51.0064 60.2077 49.1473 61.074 47.2089 61.074H13.1002C11.1618 61.074 9.30271 60.2077 7.93201 58.6658C6.56131 57.1238 5.79126 55.0324 5.79126 52.8518V41.8888C5.79126 40.3751 6.88204 39.1481 8.22759 39.1481Z" fill="#3C50E0"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M28.4319 7.0619C29.3833 5.99157 30.9259 5.99157 31.8773 7.0619L44.059 20.7656C45.0104 21.8359 45.0104 23.5713 44.059 24.6416C43.1075 25.7119 41.5649 25.7119 40.6135 24.6416L30.1546 12.8759L19.6957 24.6416C18.7443 25.7119 17.2017 25.7119 16.2502 24.6416C15.2988 23.5713 15.2988 21.8359 16.2502 20.7656L28.4319 7.0619Z" fill="#3C50E0"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.1546 6.25916C31.5001 6.25916 32.5909 7.48623 32.5909 8.9999V41.8888C32.5909 43.4025 31.5001 44.6295 30.1546 44.6295C28.809 44.6295 27.7183 43.4025 27.7183 41.8888V8.9999C27.7183 7.48623 28.809 6.25916 30.1546 6.25916Z" fill="#3C50E0"/>
+                  </svg><span class="filepond--label-action">Click to upload</span> or drag and drop <p>SVG, PNG, JPG or GIF
+                    (max, 800 X 800px)</p>`,
+                className:"uploader",
+            });
+
+        </script>
+
+        <script>
+            const pond_ = document.querySelector('.filepond--root');
+
+            // listen for events
+            pond_.addEventListener('FilePond:addfile', (e) => {
+                file = pond.getFiles()[0].file;
+
+                fileToBase64(file)
+                .then((base64String) => {
+                    console.log(base64String); // Do whatever you want with the base64 string here
+                    getObjects(base64String, navigate="single_result.html");
+                })
+                .catch((error) => {
+                    console.error(error);
+                }); 
+
+            });
+
+        </script>
+
+        <script>
+            load("footer", "./template/footer.html");
+        </script>
+
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-1.11.0.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/slick-slider.js"></script>
+    </body>
+</html>

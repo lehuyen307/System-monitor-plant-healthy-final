@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>System tree monitor</title>
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- font-awesome -->
+        <script src="https://kit.fontawesome.com/3115b3f4f1.js"></script>
+        <!-- favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/favicon/manifest.json" />
+
+
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- style -->
+        <link rel="stylesheet" href="../assets/css/main.css" />
+
+        <!-- <link rel="stylesheet" href="./style/single.css" /> -->
+
+        <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+
+        <link rel="stylesheet" href="./style/dashboard.css" />
+
+        
+
+
+        <!-- link tái sử dụng header footer-->
+        <script src="../assets/js/scripts.js"></script>
+
+        <script src="./scripts/services.js"></script>
+
+        <script src="./scripts/utils.js"></script>
+
+
+        <!-- style slick slider -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+        <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    </head>
+    <body>
+        <header id="header" class="header"></header>
+        <script>
+            load("header", "./template/header.html");
+        </script>
+
+        <main class="main">
+            <div class="dashboard">
+                <div class="left">
+                    <img class="number" src="./assets/number.png" alt="">
+                </div>
+                <div class="center">
+                    <div class="singleNumber">
+                         <img src="./assets/tomatoIcon.jpeg" alt="" srcset="" class="tomatoIcon">
+
+                          <div class="tomatoText">
+                            <h2 class="bigNumber">2520</h2>
+                            <p class="description">Tomatoes</p>
+                          </div>
+                    </div>
+
+                    <img class="time" src="./assets/time.png" alt="">
+
+                    
+                    <img class="map" src="./assets/map.png" alt="">
+                </div>
+                <div class="right">
+                    <div class="chartContainer">
+                        <canvas id="myDonutChart"></canvas>
+                    </div>
+                    <img  class="season" src="./assets/season.png" alt="">
+                </div>
+            </div>
+        </main>
+
+        <script type="module">
+            let countTomatoMap = JSON.parse(sessionStorage.getItem('countTomatoMap'));
+
+            
+
+            if (!countTomatoMap) {
+                countTomatoMap = {
+                    'Fully Ripe': 0,
+                    'Almost Ripe': 0,
+                    'Unripe': 0
+                };
+                }
+
+            const labels = Object.keys(countTomatoMap);
+            const data = Object.values(countTomatoMap);
+
+            var bigNumber = document.querySelector('.bigNumber');
+
+            console.log(bigNumber)
+
+            const dataSum = Object.values(countTomatoMap).reduce((acc, curr) => acc + curr, 0);
+            
+            bigNumber.innerHTML = dataSum;
+
+            var ctx = document.getElementById('myDonutChart').getContext('2d');
+            var tomatoChart = new Chart(ctx, {
+                type: 'doughnut', // specify chart type
+                data: {
+                    labels: labels, // Add your labels for each data point
+                    datasets: [{
+                        data: data, // Add your data points here
+                        backgroundColor: [
+                            '#EB4335', // specify colors for each section
+                            '#FFCD56',
+                            '#7DCC70'
+                        ],
+                        borderWidth: 1, // optional border width,
+                        borderWidth: [5, 0, 0]
+                    }]
+                },
+                options: {
+                    responsive: true, // makes the chart responsive
+                    maintainAspectRatio: false, // if you want to force a specific aspect ratio
+                    // Additional options can go here
+                    plugins: {
+                        legend: {
+                          display: true,
+                          position: "left",
+                          align: "center",
+                          labels: {
+                            fontSize: 40,
+                        }
+                        }
+                      }
+              
+
+                }
+            });
+
+            
+            
+            </script>
+
+        <footer id="footer" class="footer"></footer>
+        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+        
+
+        <script>
+            load("footer", "./template/footer.html");
+        </script>
+
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-1.11.0.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/slick-slider.js"></script>
+    </body>
+</html>

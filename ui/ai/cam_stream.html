@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>System tree monitor</title>
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+        <!-- font-awesome -->
+        <script src="https://kit.fontawesome.com/3115b3f4f1.js"></script>
+        <!-- favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="../assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="../assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="../assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="../assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="../assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="../assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="../assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="../assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="../assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="../assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../assets/favicon/manifest.json" />
+
+
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="../assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- style -->
+        <link rel="stylesheet" href="../assets/css/main.css" />
+
+        <link rel="stylesheet" href="./style/single.css" />
+
+
+
+        <link rel="stylesheet" href="./style/camera.css" />
+
+        <link rel="stylesheet" href="./style/singleResult.css" />
+
+
+
+        <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+        
+
+                
+
+
+        <!-- link tái sử dụng header footer-->
+        <script src="../assets/js/scripts.js"></script>
+
+        <script src="./scripts/services.js"></script>
+
+        <script src="./scripts/utils.js"></script>
+
+
+        <!-- style slick slider -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+        <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    </head>
+    <body>
+        <header id="header" class="header"></header>
+        <script>
+            load("header", "../template/header.html");
+        </script>
+
+        <main class="main">
+            <section class="result">
+                <div class="flyContainer">
+                    <h2>Sơ đồ hành trình bay</h2>
+                    <img class="flyMap" src="./assets/flyMap.png" alt="">
+
+                </div>
+
+                
+                <div id="imageContainer">
+                    <h2>Camera</h2>
+                    <img id="result_img">
+
+                    <h2>Kết quả</h2>
+                    <ul id="leaveList"></ul>
+
+                </div>
+
+                
+                <!-- <div class="textResult">
+                    <div class="tomatoResult">
+                        Kết quả phân loại cà chua:
+                        <ul id="tomatoList"></ul>
+                    </div>
+                    <div class="leaveResult">
+
+                        Phát hiện bệnh:
+                        <ul id="leaveList"></ul>
+
+                    </div>
+                    <a class="w3-left w3-btn" href="single_image.html">❮ Previous</a> -->
+                </div>    
+                <video id="videoElement"></video>
+                <canvas id="canvas"></canvas>      
+            </section>
+
+
+           
+                    
+
+
+
+                
+                
+        </main>
+
+        <footer id="footer" class="footer"></footer>
+        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+        <script>
+            // Register the plugin
+            FilePond.registerPlugin(FilePondPluginFileEncode);
+        
+            // ... FilePond initialisation code here
+        </script>
+
+        <script>
+            // Get video, canvas, and capture button elements
+        const video = document.getElementById('videoElement');
+        const canvas = document.getElementById('canvas');
+        const result_img = document.getElementById('result_img');
+
+        const context = canvas.getContext('2d');
+
+
+        // Request access to the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) => {
+            video.srcObject = stream;
+            video.play();
+
+            // Capture image and send to API after a delay
+            setInterval(() => {
+            // Draw the current video frame onto the canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const imageData = canvas.toDataURL('image/jpeg');
+
+
+            getCamObjects(imageData.split(',')[1], navigate="");
+
+            const result = JSON.parse(sessionStorage.getItem('singleImageData'));
+
+            // Get the base64 representation of the image
+
+            // console.log(result)
+
+
+            result_img.src = `data:image/png;base64,${result.bbox_image}`
+
+            const data = result.result;
+
+            const leaveClassification = [];
+            const tomatoClassification = [];
+
+            data.forEach(obj => {
+            if (!obj.name.startsWith("Tomato")) {
+                tomatoClassification.push(obj);
+            } else {
+                leaveClassification.push(obj);
+            }
+            });
+
+            // Count the unique names in the tomatoClassification array
+            const uniqueNames = {};
+            tomatoClassification.forEach(obj => {
+            if (uniqueNames[obj.name]) {
+                uniqueNames[obj.name]++;
+            } else {
+                uniqueNames[obj.name] = 1;
+            }
+            });
+
+            const uniqueNamesLeave = {};
+            leaveClassification.forEach(obj => {
+            if (uniqueNamesLeave[obj.name]) {
+                uniqueNamesLeave[obj.name]++;
+            } else {
+                uniqueNamesLeave[obj.name] = 1;
+            }
+            });
+
+            let countTomatoMap = JSON.parse(sessionStorage.getItem('countTomatoMap'));
+
+            // Step 2: Initialize a new count tomato map if it doesn't exist
+            if (!countTomatoMap) {
+            countTomatoMap = {
+                'Fully Ripe': 0,
+                'Almost Ripe': 0,
+                'Unripe': 0
+            };
+            }
+
+            const tomatoTextMapping = {
+                'Defective': 'Unripe', 'Fresh': 'Fully Ripe', 'Immature': 'Almost Ripe'
+            }
+
+            const tomatoMapping = {
+                'Defective': '🍅🚫',
+                'Fresh': '🍅🌿',
+                'Immature': '🍅🌱'
+            };
+
+        
+            for (const [className, icon] of Object.entries(tomatoMapping)) {
+                const numberOfInstance = uniqueNames[className]?? 0;
+                countTomatoMap[tomatoTextMapping[className]] += numberOfInstance;
+            }
+
+            sessionStorage.setItem('countTomatoMap', JSON.stringify(countTomatoMap));
+        
+
+            const leaveMapping = {
+                "Tomato Early blight leaf": "Virus khảm lá",
+                "Tomato Septoria leaf spot": "Bạc lá sớm",
+                "Tomato leaf bacterial spot": "Bạc lá muộn",
+                "Tomato leaf late blight": "Đốm vi khuẩn",
+                "Tomato leaf mosaic virus": "Virus xoàn lá",
+                "Tomato leaf yellow virus": "Vàng xoắn lá",
+                "Tomato leaf": "Vàng xoắn lá",  
+                "Tomato mold leaf": "Mốc lá",
+                
+            }
+
+            const leaveList = document.getElementById('leaveList');
+            leaveList.innerHTML = '';   
+
+            console.log(uniqueNamesLeave);
+
+
+            for (const [className, name] of Object.entries(leaveMapping)) {
+                const numberOfInstance = uniqueNamesLeave[className]?? 0;
+
+                console.log(numberOfInstance)
+                const listItem = document.createElement('li');
+                if (numberOfInstance) {
+                    listItem.textContent = `- ${name}: ${numberOfInstance}`;
+                    leaveList.appendChild(listItem);
+                }
+               
+            }
+
+
+                
+            }, 200); // Delay in milliseconds before capturing the image
+        })
+        .catch((error) => {
+            console.error('Error accessing camera:', error);
+        });
+        </script>
+
+       
+        <script>
+            load("footer", "./template/footer.html");
+        </script>
+
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-1.11.0.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/slick-slider.js"></script>
+    </body>
+</html>

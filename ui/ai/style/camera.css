@@ -1,0 +1,41 @@
+main {
+    background: var(--theme-color-grey-2, #F3F2F7);
+}
+
+video {
+    display: none;
+}
+
+canvas {
+    width: 500px;
+    height: 500px;
+    visibility: hidden;
+}
+
+
+#result_img {
+    flex: 1;
+    width: 600px;
+    height: 300px;
+    margin-left: 100px;
+}
+
+.flyContainer {
+    flex: 2;
+    margin-left: 50px;
+}
+
+.flyMap {
+    height: 590px;
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+}
+
+#imageContainer {
+    flex: 1;
+    width: 500px;
+    justify-content: center;
+}

@@ -1,0 +1,82 @@
+body {
+    background: var(--theme-color-grey-2, #F3F2F7);
+}
+
+
+.dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.number {
+    width: 200px;
+    height: 600px;
+}
+
+.map {
+    width: 650px;
+    height: 200px;
+    margin-top: 20px;
+    bottom: 0;
+}
+
+.chartContainer {
+    width: 600px;
+    height: 200px;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+
+.time {
+    width: 650px;
+    height: 200px;
+}
+
+.season {
+    width: 680px;
+    height: 380px;
+}
+
+.tomatoText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.singleNumber {
+    margin-top: 30px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    background: #FFF;
+    border-radius: 14px;
+    /* Shadow01 */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.04);
+}
+
+.tomatoIcon {
+    margin: 20px;
+    width: 100px !important;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.bigNumber {
+    color: #1E1E1E;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Barlow;
+font-size: 46px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
