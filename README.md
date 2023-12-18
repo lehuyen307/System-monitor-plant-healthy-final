@@ -45,8 +45,13 @@ cd api
 2. Install deps
 ```
 pip install -r requirements.txt
+
+3. 
 ```
-3. Run API
+`https://drive.google.com/u/0/uc?id=1mmeuWNCHBBapTYUvHQWAomYwgrggaqVz&export=download`
+lưu rename file: 'leave.h5' location in api/weights/classification/leave.h5
+```
+4. Run API
 ```
 uvicorn app:app --reload  
 ```
